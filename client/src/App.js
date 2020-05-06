@@ -15,20 +15,25 @@ export default function App() {
 	const [fontsLoaded, setFontsLoaded] = React.useState(false);
 	const [results, setResults] = React.useState(fields);
 	const [image, setImage] = React.useState(null);
+	const [error, setError] = React.useState(null);
 
 	const handleResultsChange = (updatedResults) => setResults(updatedResults);
 
 	React.useEffect(() => {
 		(async function () {
+			const timeout = 7500;
 			const fonts = [
-				{ name: "neue-haas-grotesk-display", weight: 300 },
+				{ name: "neue-haas-grotesk-display", weight: 400 },
 				{ name: "neue-haas-grotesk-display", weight: 500 },
 				{ name: "neue-haas-grotesk-display", weight: 600 },
 				{ name: "starling", weight: 700 },
-			].map(({ name, weight }) => new FontFaceObserver(name, { weight }));
+			].map(
+				({ name, weight }) =>
+					new FontFaceObserver(name, { weight, style: "italic" })
+			);
 
 			for (const font of fonts) {
-				await font.load();
+				await font.load("BES", timeout);
 			}
 
 			setFontsLoaded(true);
