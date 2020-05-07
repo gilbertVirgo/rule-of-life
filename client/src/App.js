@@ -5,7 +5,7 @@ import Start from "./pages/Start";
 import { ThemeProvider } from "styled-components";
 import Review from "./pages/Review/Review";
 import FontFaceObserver from "fontfaceobserver";
-
+import Intro from "./pages/Intro";
 import theme from "./theme";
 import fields from "./fields";
 import Spinner from "./components/Spinner";
@@ -51,6 +51,7 @@ export default function App() {
 						atLeave={{ opacity: 0 }}
 						atActive={{ opacity: 1 }}
 					>
+						<Route path="/intro" component={Intro} />
 						<Route
 							path="/results"
 							render={() => (

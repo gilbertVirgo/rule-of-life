@@ -23,11 +23,6 @@ export const Wrapper = styled(DefaultWrapper)`
 	}
 `;
 
-const lightSansSerif = `
-    font-family: ${theme.font.family.sansSerif};
-	font-weight: 300;
-`;
-
 export const TextWrapper = styled.section`
 	grid-column-start: 1;
 	justify-self: center;
@@ -38,37 +33,6 @@ export const TextWrapper = styled.section`
     `}
 `;
 
-export const Heading = styled.h1`
-	${lightSansSerif}
-	font-size: 48px;
-	line-height: 48px;
-	margin-bottom: 30px;
-	text-align: center;
-
-	${breakpoint("lg")`
-        text-align: left !important
-        `}
-`;
-
-export const Subheading = styled.h3`
-	${lightSansSerif}
-	font-weight: 300;
-	font-size: 24px;
-	line-height: 30px;
-	text-align: ${({ center }) => (center ? "center" : "left")};
-
-	${breakpoint("lg")`
-        text-align: left !important
-        `}
-
-	margin-bottom: 40px;
-
-	> a {
-		text-decoration: underline;
-		color: inherit;
-	}
-`;
-
 export const DeviceWrapper = styled.div`
 	width: 223px;
 	display: block;
@@ -77,15 +41,6 @@ export const DeviceWrapper = styled.div`
 	justify-self: center;
 
 	grid-column-start: 1;
-`;
-
-export const Title = styled.h2`
-	${lightSansSerif}
-	font-size: 30px;
-	line-height: 30px;
-	padding-bottom: 15px;
-	border-bottom: 1px solid black;
-	margin-bottom: 10px;
 `;
 
 export const DownloadButtonWrapper = styled.div`
@@ -101,5 +56,6 @@ export const Subtitle = styled.h4`
 	line-height: 30px;
 	color: ${theme.color.grey};
 	padding-bottom: 1px;
-	border-bottom: 1px solid ${theme.color.grey};
+	${({ borderless }) =>
+		!borderless && `border-bottom: 1px solid ${theme.color.grey}`}
 `;

@@ -53,8 +53,8 @@ export const ValidationWrapper = styled.section`
 	grid-column-start: 2;
 	grid-column-end: 6;
 	display: flex;
-	flex-direction: row;
-	align-items: center;
+	flex-direction: column;
+	align-items: flex-start;
 	margin-bottom: 30px;
 
 	${breakpoint("lg")`
@@ -64,6 +64,7 @@ export const ValidationWrapper = styled.section`
 `;
 
 export const Indicator = styled.div`
+	display: inline-block;
 	border-radius: 10px;
 	width: 10px;
 	height: 10px;
@@ -72,14 +73,15 @@ export const Indicator = styled.div`
 		danger ? theme.color.danger : theme.color.success};
 `;
 
-export const Sub = styled.span`
+export const Sub = styled.div`
 	font-weight: 600;
 	font-size: 14px;
-	line-height: 30px;
+	line-height: 20px;
 	font-family: ${({ theme }) => theme.font.family.sansSerif};
+	margin-bottom: 0;
 `;
 
-export const Score = styled(Sub)`
+export const Colored = styled.span`
 	color: ${({ danger, theme }) =>
 		danger ? theme.color.danger : theme.color.success};
 `;

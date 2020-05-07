@@ -4,16 +4,12 @@ import format from "../../format";
 import constants from "../../constants";
 import Spinner from "../../components/Spinner";
 import Button from "../../components/Button";
-import { Logo } from "../../components/styles";
+import { Logo, Heading, Subheading, Subtitle } from "../../components/styles";
 import {
 	Wrapper,
 	Background,
-	Heading,
-	Subheading,
 	TextWrapper,
 	DeviceWrapper,
-	Title,
-	Subtitle,
 	DownloadButtonWrapper,
 } from "./styles";
 import Radio from "../../components/Radio";

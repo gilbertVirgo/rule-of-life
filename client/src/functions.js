@@ -25,6 +25,8 @@ export const setField = (results, { label, value }) => {
 	return updatedResults;
 };
 
+export const isValidField = (value) => value.length !== 0 && value.length < 60;
+
 export const isValidResults = (results) => {
 	if (typeof results === "object") {
 		if (results.hasOwnProperty("length")) {
@@ -42,7 +44,7 @@ export const isValidResults = (results) => {
 export const isCompletedResults = (results) => {
 	if (
 		!getPractices(results).find(
-			({ value }) => typeof value === "undefined" || value.length === 0
+			({ value }) => typeof value === "undefined" || !isValidField(value)
 		)
 	) {
 		return true;
