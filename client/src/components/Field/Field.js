@@ -19,7 +19,7 @@ export const Field = ({ index, label, placeholder, value, onChange }) => {
 			<Input
 				value={value}
 				onChange={({ target }) => onChange(target.value)}
-				placeholder={placeholder}
+				placeholder="Enter text here"
 			/>
 			<ValidationWrapper>
 				<Indicator danger={error} />

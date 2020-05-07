@@ -26,10 +26,10 @@ export default function App() {
 				{ name: "neue-haas-grotesk-display", weight: 400 },
 				{ name: "neue-haas-grotesk-display", weight: 500 },
 				{ name: "neue-haas-grotesk-display", weight: 600 },
-				{ name: "starling", weight: 700 },
+				{ name: "starling", weight: 700, style: "italic" },
 			].map(
-				({ name, weight }) =>
-					new FontFaceObserver(name, { weight, style: "italic" })
+				({ name, weight, style = "normal" }) =>
+					new FontFaceObserver(name, { weight, style })
 			);
 
 			for (const font of fonts) {
