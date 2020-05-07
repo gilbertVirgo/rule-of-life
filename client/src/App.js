@@ -46,12 +46,8 @@ export default function App() {
 				{!fontsLoaded ? (
 					<Spinner title="Loading fonts" />
 				) : (
-					<Switch
-						atEnter={{ opacity: 0 }}
-						atLeave={{ opacity: 0 }}
-						atActive={{ opacity: 1 }}
-					>
-						<Route path="/intro" component={Intro} />
+					<Switch>
+						<Route exact path="/" component={Intro} />
 						<Route
 							path="/results"
 							render={() => (
