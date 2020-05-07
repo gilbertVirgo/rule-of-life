@@ -74,9 +74,11 @@ export const Results = ({ results, onImageLoaded, image }) => {
 							/>
 						</Grid>
 						<DownloadButtonWrapper>
-							<Button downArrow onClick={handleDownload}>
-								Download
-							</Button>
+							<a download href={image}>
+								<Button downArrow onClick={handleDownload}>
+									Download
+								</Button>
+							</a>
 						</DownloadButtonWrapper>
 						<Subtitle>Next up</Subtitle>
 						<Subheading>
