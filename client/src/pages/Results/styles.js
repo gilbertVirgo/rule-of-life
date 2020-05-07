@@ -47,6 +47,18 @@ export const DownloadButtonWrapper = styled.div`
 	margin-bottom: 40px;
 	display: flex;
 	justify-content: center;
+
+	> .only-mobile {
+		display: initial;
+	}
+	> .only-desktop {
+		display: none;
+	}
+
+	${breakpoint("lg")`
+		> .only-mobile { display: none }
+		> .only-desktop {display: initial}
+	`}
 `;
 
 export const Subtitle = styled.h4`
