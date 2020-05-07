@@ -74,7 +74,7 @@ export const Results = ({ results, onImageLoaded, image }) => {
 							/>
 						</Grid>
 						<DownloadButtonWrapper>
-							<a download href={image}>
+							<a download="RuleOfLife.png" href={image}>
 								<Button downArrow onClick={handleDownload}>
 									Download
 								</Button>
