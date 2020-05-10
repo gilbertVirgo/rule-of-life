@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ReactGA from 'react-ga';
 import Results from "./pages/Results";
 import Start from "./pages/Start";
 import { ThemeProvider } from "styled-components";
@@ -11,6 +12,8 @@ import fields from "./fields";
 import Spinner from "./components/Spinner";
 import Preview from "./pages/Preview";
 
+const trackingId = "UA-165932948-1";
+ReactGA.initialize(trackingId); // initialize ReactGA with trackingId
 export default function App() {
 	const [fontsLoaded, setFontsLoaded] = React.useState(false);
 	const [results, setResults] = React.useState(fields);
