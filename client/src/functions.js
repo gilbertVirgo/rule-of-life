@@ -25,7 +25,7 @@ export const setField = (results, { label, value }) => {
 	return updatedResults;
 };
 
-export const isValidField = (value) => value.length !== 0 && value.length < 60;
+export const isValidField = (value) => value.length > 0 && value.length < 60;
 
 export const isValidResults = (results) => {
 	if (typeof results === "object") {

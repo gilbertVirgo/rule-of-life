@@ -12,8 +12,19 @@ import { isValidField } from "../../functions";
 
 export const Field = React.forwardRef(
 	({ index, label, error, value, onChange }, ref) => {
-		const overflow = !isValidField(value);
+		const invalid = !isValidField(value);
 		const [focused, setFocused] = React.useState(false);
+		const [visited, setVisited] = React.useState(false);
+
+		const handleFocus = () => setFocused(true);
+		const handleBlur = () => {
+			if (!visited) setVisited(true);
+			setFocused(false);
+		};
+		const handleChange = ({ target }) => {
+			if (!visited) setVisited(true);
+			onChange(target.value);
+		};
 
 		return (
 			<>
@@ -21,31 +32,31 @@ export const Field = React.forwardRef(
 				<Text>{label}</Text>
 				<Input
 					ref={ref}
-					onFocus={() => setFocused(true)}
-					onBlur={() => setFocused(false)}
+					onFocus={handleFocus}
+					onBlur={handleBlur}
 					value={value}
-					onChange={({ target }) => onChange(target.value)}
+					onChange={handleChange}
 					placeholder="Type your answer here..."
 				/>
 				<ValidationWrapper>
 					{focused && (
 						<React.Fragment>
 							<Sub>
-								<Indicator danger={overflow || error} />
-								<Colored danger={overflow}>
+								<Indicator danger={visited && invalid} />
+								<Colored danger={visited && invalid}>
 									{value.length}
 								</Colored>
 								/60 characters
 							</Sub>
-							{overflow && (
-								<Sub>
-									<Colored danger>
-										Please make sure this field is filled
-										out correctly
-									</Colored>
-								</Sub>
-							)}
 						</React.Fragment>
+					)}
+					{invalid && visited && (
+						<Sub>
+							<Colored danger>
+								Please make sure this field is filled out
+								correctly
+							</Colored>
+						</Sub>
 					)}
 				</ValidationWrapper>
 			</>
