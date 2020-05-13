@@ -1,5 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
 import Results from "./pages/Results";
 import Start from "./pages/Start";
 import { ThemeProvider } from "styled-components";
@@ -10,6 +12,16 @@ import theme from "./theme";
 import fields from "./fields";
 import Spinner from "./components/Spinner";
 import Preview from "./pages/Preview";
+
+const trackingId = "UA-165932948-1";
+ReactGA.initialize(trackingId); // initialize ReactGA with trackingId
+
+const history = createBrowserHistory();
+history.listen(location => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
+
 
 export default function App() {
 	const [fontsLoaded, setFontsLoaded] = React.useState(false);
@@ -41,7 +53,7 @@ export default function App() {
 	}, []);
 
 	return (
-		<Router>
+		<Router history={history}>
 			<ThemeProvider theme={theme}>
 				{!fontsLoaded ? (
 					<Spinner title="Loading fonts" />
