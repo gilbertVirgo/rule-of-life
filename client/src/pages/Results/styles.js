@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import theme from "../../theme";
 import { Wrapper as DefaultWrapper } from "../../components/styles";
 import { createBreakpoint } from "styled-components-breakpoint";
+import styled from "styled-components";
+import theme from "../../theme";
 
 const breakpoint = createBreakpoint(theme.breakpoints);
 
@@ -17,7 +17,7 @@ export const Wrapper = styled(DefaultWrapper)`
 		max-width: 500px;
 
 		${breakpoint("lg")`
-        max-width: 100vh;
+		width: auto;
         grid-template-columns: 400px 400px;
         `}
 	}
