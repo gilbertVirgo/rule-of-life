@@ -4,7 +4,7 @@ import theme from "../../theme";
 
 const breakpoint = createBreakpoint(theme.breakpoints);
 
-const Label = styled.label`
+const Label = styled.span`
 	font-size: 24px;
 	line-height: 30px;
 	font-family: "neue-haas-grotesk-display", sans-serif;
@@ -12,27 +12,30 @@ const Label = styled.label`
 `;
 
 export const Number = styled(Label)`
-	grid-column-start: 1;
-	text-align: center;
+	/*grid-column-start: 1;
+	text-align: center;*/
+
+	margin-right:20px;
 
 	${breakpoint("lg")`
-		grid-column-start: 2;
-		`}
+	/*grid-column-start: 2;*/
+	`}
 `;
 
 export const Text = styled(Label)`
-	grid-column-start: 2;
-	grid-column-end: 6;
+	/*grid-column-start: 2;
+	grid-column-end: 6;*/
 
 	${breakpoint("lg")`
-		grid-column-start: 3;
-		grid-column-end: 6;
+		/*grid-column-start: 3;
+		grid-column-end: 6;*/
 	`}
 `;
 
 export const Input = styled.textarea`
-	grid-column-start: 2;
-	grid-column-end: 6;
+	/*grid-column-start: 2;
+	grid-column-end: 6;*/
+	width: 100%;
 	outline: none;
 	font-size: 30px;
 	line-height: 40px;
@@ -44,8 +47,8 @@ export const Input = styled.textarea`
 	resize: none;
 
 	${breakpoint("lg")`
-		grid-column-start: 3;
-		grid-column-end: 6;
+		/*grid-column-start: 3;
+		grid-column-end: 6;*/
 	`}
 `;
 

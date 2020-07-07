@@ -10,31 +10,32 @@ const lightSansSerif = `
 `;
 
 export const Wrapper = styled.main`
-	display: grid;
+	/*display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	column-gap: 20px;
 	width: 100%;
-	max-width: 500px;
 	padding: 15px;
-	box-sizing: border-box;
+	box-sizing: border-box;*/
 
 	${breakpoint("lg")`
-	max-width: 1072px;
+	/*max-width: 1072px;
     grid-template-columns: repeat(10, 1fr);
-    column-gap: 20px;
+    column-gap: 20px;*/
     `}
 `;
 
 export const Logo = styled.img.attrs({ src: require("../assets/logo.png") })`
-	height: 32px;
+	/*height: 32px;
 	margin-top: 30px;
 	margin-bottom: 80px;
 	grid-column: 1/-1;
-	justify-self: center;
+	justify-self: center;*/
 
-	${breakpoint("lg")`
-    height: 55px;
-    `}
+	margin: 30px auto 80px;
+	display: block;
+	height: auto;
+    width: 50%;
+    max-width: 150px;
 `;
 
 export const Heading = styled.h1`

@@ -71,3 +71,12 @@ export const Subtitle = styled.h4`
 	${({ borderless }) =>
 		!borderless && `border-bottom: 1px solid ${theme.color.grey}`}
 `;
+
+export const RoundButton = styled.div`
+	width: 39px;
+    height: 39px;
+    margin: 4px;
+    border-radius: 100%;
+	border: 0px;
+	background: linear-gradient(122.27deg, #F6D365 0%, #FDA085 100%);
+`;

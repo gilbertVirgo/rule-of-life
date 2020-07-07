@@ -9,6 +9,7 @@ import {
 	Wrapper,
 	Background,
 	TextWrapper,
+	RoundButton,
 	DeviceWrapper,
 	DownloadButtonWrapper,
 } from "./styles";
@@ -23,6 +24,17 @@ export const Results = ({ results, onImageLoaded, image }) => {
 	const history = useHistory();
 
 	const [selectedTheme, setSelectedTheme] = React.useState("sunset");
+
+	const colors = [
+		{ name: 'beige', active: false },
+		{ name: 'sunset', active: true },
+		{ name: 'light', active: false },
+		{ name: 'dark', active: false },
+		{ name: 'night', active: false },
+		{ name: 'blue', active: false },
+		{ name: 'green', active: false },
+		{ name: 'purple', active: false }
+	];
 
 	React.useEffect(() => {
 		(async function () {
@@ -40,9 +52,20 @@ export const Results = ({ results, onImageLoaded, image }) => {
 		history.push("/preview");
 	};
 
-	if (!isValidResults(results) || !isCompletedResults(results)) {
+	const handleColorSelected = (color) => {
+		for (let i = 0; i < colors.length; i++) { 
+			if (color.name == colors[i].name) {
+				colors[i].active = true;
+			} else { 
+				colors[i].active = false;
+			}
+		}
+	};
+
+	/*if (!isValidResults(results) || !isCompletedResults(results) ) {
 		return <Redirect to="/review" />;
-	} else {
+	} else*/
+	{
 		return image ? (
 			<Background>
 				<Wrapper>
@@ -59,20 +82,18 @@ export const Results = ({ results, onImageLoaded, image }) => {
 					</DeviceWrapper>
 					<TextWrapper>
 						<Subtitle>Choose your theme</Subtitle>
-						<Grid columnCount={2} style={{ marginBottom: 40 }}>
-							<Radio
-								checked={selectedTheme === "sunset"}
-								onChange={() => setSelectedTheme("sunset")}
-								label="Sunset"
-								gradient="sunset"
-							/>
-							<Radio
-								checked={selectedTheme === "light"}
-								onChange={() => setSelectedTheme("light")}
-								label="Light"
-								gradient="light"
-							/>
-						</Grid>
+						<div style={{ display: 'flex', justifyContent: 'center' }}>
+							{colors.map(color => { 
+								return <div key={color.name} style={{ margin: '8px 3px', borderRadius: '100%', border: '2px solid #0085FF', boxSizing: 'border-box' }}>
+									<RoundButton
+									checked={selectedTheme === color}
+									onChange={() => setSelectedTheme(color)}
+									label="color"
+									gradient="color"
+									/>
+								</div>
+							})}
+						</div>
 						<DownloadButtonWrapper>
 							<span className="only-mobile">
 								<Button downArrow onClick={handleDownload}>

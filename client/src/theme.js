@@ -28,5 +28,8 @@ export default {
 		md: 768,
 		lg: 992,
 		xl: 1200,
+		phone: 0,
+		tablet: 640,
+		laptop: 1024
 	},
 };

@@ -7,6 +7,8 @@ export const Wrapper = styled.button`
 	padding: 8px 15px;
 	border-radius: 2px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	display: block;
+    margin: 0px auto;
 `;
 
 export const Text = styled.span`

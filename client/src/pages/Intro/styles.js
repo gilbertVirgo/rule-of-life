@@ -12,16 +12,23 @@ export const Wrapper = styled(DefaultWrapper)`
 export const TextWrapper = styled.div`
 	text-align: center;
 
-	grid-column-start: 1;
+	/*grid-column-start: 1;
 	grid-column-end: 6;
-	margin-bottom: auto;
+	margin-bottom: auto;*/
+
+	margin-left: auto;
+	margin-right: auto;
+	width: calc(100% - 40px);
+    margin: 0px 20px;
+	
+	${breakpoint("tablet")`
+	width: 435px;
+	margin: 0px auto;
+    `}
 
 	${breakpoint("lg")`
-    width: 335px;
-    margin-left: auto;
-    margin-right: auto;
-        grid-column-start:3;
-        grid-column-end: 9;
+	width: 435px;
+	margin: 0px auto;
     `}
 `;
 

@@ -13,7 +13,7 @@ import Button from "../../components/Button";
 import { useHistory } from "react-router-dom";
 import { Wrapper, Logo } from "../../components/styles";
 import Background from "../../components/Background";
-import { ButtonWrapper } from "./styles";
+import { ButtonWrapper, TextContainer } from "./styles";
 import animateScrollTo from "animated-scroll-to";
 
 const Review = ({ results = [], onResultsChange }) => {
@@ -51,6 +51,7 @@ const Review = ({ results = [], onResultsChange }) => {
 		<Background>
 			<Wrapper>
 				<Logo />
+				<TextContainer>
 				{getPractices(results).map(({ value, label, title }, index) => {
 					return (
 						<Field
@@ -65,6 +66,7 @@ const Review = ({ results = [], onResultsChange }) => {
 						/>
 					);
 				})}
+				</TextContainer>
 				<ButtonWrapper>
 					<Button onClick={handleSubmit}>Create Rule of Life</Button>
 				</ButtonWrapper>
