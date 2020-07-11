@@ -19,6 +19,7 @@ import { useHistory, Redirect } from "react-router-dom";
 import Mockup from "../../components/Mockup";
 import theme from "../../theme";
 import { isValidResults, isCompletedResults } from "../../functions";
+import './roundButton.css';
 
 export const Results = ({ results, onImageLoaded, image }) => {
 	const history = useHistory();
@@ -52,19 +53,9 @@ export const Results = ({ results, onImageLoaded, image }) => {
 		history.push("/preview");
 	};
 
-	const handleColorSelected = (color) => {
-		for (let i = 0; i < colors.length; i++) { 
-			if (color.name == colors[i].name) {
-				colors[i].active = true;
-			} else { 
-				colors[i].active = false;
-			}
-		}
-	};
-
-	/*if (!isValidResults(results) || !isCompletedResults(results) ) {
+	if (!isValidResults(results) || !isCompletedResults(results) ) {
 		return <Redirect to="/review" />;
-	} else*/
+	} else
 	{
 		return image ? (
 			<Background>
@@ -84,12 +75,10 @@ export const Results = ({ results, onImageLoaded, image }) => {
 						<Subtitle>Choose your theme</Subtitle>
 						<div style={{ display: 'flex', justifyContent: 'center' }}>
 							{colors.map(color => { 
-								return <div key={color.name} style={{ margin: '8px 3px', borderRadius: '100%', border: '2px solid #0085FF', boxSizing: 'border-box' }}>
+								let buttonStatus = selectedTheme == color.name ? 'active' : '';
+								return <div key={color.name} className={`${color.name} ${buttonStatus} round-btn`}>
 									<RoundButton
-									checked={selectedTheme === color}
-									onChange={() => setSelectedTheme(color)}
-									label="color"
-									gradient="color"
+									onClick={() => setSelectedTheme(color.name)}
 									/>
 								</div>
 							})}

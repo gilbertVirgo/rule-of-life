@@ -1,0 +1,39 @@
+.round-btn.beige > div {
+    background: linear-gradient(121deg, #FDFCFB -9.47%, #FBF9F7 -9.46%, #E2D1C3 100%);
+}
+
+.round-btn.sunset > div {
+    background: linear-gradient(122.27deg, #F6D365 0%, #FDA085 100%);
+}
+
+.round-btn.light > div {
+    background: linear-gradient(90deg, #F5F7FA 0%, #C3CFE2 100%);
+}
+
+.round-btn.dark > div {
+    background: linear-gradient(90deg, #434343 0%, #000000 100%);
+}
+
+.round-btn.night > div {
+    background: linear-gradient(90deg, #09203F 0%, #537895 100%);
+}
+
+.round-btn.blue > div {
+    background: linear-gradient(90deg, #00C6FB 0%, #005BEA 100%);
+}
+
+.round-btn.green > div {
+    background: linear-gradient(90deg, #E4AFCB 0%, #B8CBB8 0%, #B8CBB8 0%, #E2C58B 30%, #C2CE9C 64%, #7EDBDC 100%);
+}
+
+.round-btn.purple > div {
+    background: linear-gradient(90deg, #3F51B1 0%, #5A55AE 13%, #7B5FAC 25%, #8F6AAE 38%, #A86AA4 50%, #CC6B8E 62%, #F18271 75%, #F3A469 87%, #F7C978 100%);
+}
+
+.round-btn.active { 
+    margin: 8px 3px; border-radius: 100%; border: 2px solid #0085FF; box-sizing: border-box;
+}
+
+.round-btn { 
+    margin: 8px 3px; border-radius: 100%; border: 2px solid transparent; box-sizing: border-box;
+}
