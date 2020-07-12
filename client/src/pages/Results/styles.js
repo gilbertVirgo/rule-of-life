@@ -97,7 +97,6 @@ export const DeviceFrames = styled.div`
 
 	.active {
 		border: 2px solid #0085FF; 
-		box-sizing: border-box;
 	}
 
 	> div {
@@ -108,16 +107,20 @@ export const DeviceFrames = styled.div`
 
 		display: flex;
 		justify-content: center;
-		padding-top: 16px;
-		padding-bottom: 44px;
 
-		border: 0.5px solid #C0C0C0;
+		border: 0.5px solid #00000000;
 		border-radius: 2px;
 
 		> .frame-container {
 			width: 100%;
-			height: 100%;
-			display: contents;
+			height: calc(100% - 4px);
+			display: flex;
+			justify-content: center;
+			padding-top: 14px;
+			padding-bottom: 44px;
+			border: 0.5px solid #C0C0C0;
+			border-radius: 1px;
+    		margin: 2px;
 		}
 	
 		img {
@@ -128,9 +131,10 @@ export const DeviceFrames = styled.div`
 		.frame-text { 
 			font-weight: 500;
 			position: absolute;
-			margin-top: 76px;
+			margin-top: 72px;
+			line-height: 1;
 			font-size: 11px;
-			width: 85px;
+			width: 62px;
 			text-align: center;
 		}
 	}

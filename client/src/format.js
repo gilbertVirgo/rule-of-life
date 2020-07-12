@@ -36,7 +36,7 @@ const format = {
 			offsetLeft = 20;
 
 		if (exportType == "Lockscreen" || exportType == "Both") { 
-			offsetTop += 100;
+			offsetTop += 120;
 		}
 		
 		sections.forEach(({ label, practices }) => {
