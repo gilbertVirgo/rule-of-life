@@ -13,13 +13,21 @@ export const Background = styled.div`
 
 export const Wrapper = styled(DefaultWrapper)`
 	&&& {
-		grid-template-columns: 100%;
-		max-width: 500px;
+
+		width: 100%;
+		padding: 0px 20px;
+
+		${breakpoint("tablet")`
+		width: 500px;
+		margin: 0px auto;
+		padding: 0px;
+		`}
 
 		${breakpoint("lg")`
-		width: auto;
-        grid-template-columns: 400px 400px;
-        `}
+		width: 500px;
+		margin: 0px auto;
+		padding: 0px;
+		`}
 	}
 `;
 
@@ -79,4 +87,51 @@ export const RoundButton = styled.div`
     border-radius: 100%;
 	border: 0px;
 	background: linear-gradient(122.27deg, #F6D365 0%, #FDA085 100%);
+`;
+
+export const DeviceFrames = styled.div`
+	
+	display: flex;
+	justify-content: center;
+	margin-top: 19px;
+
+	.active {
+		border: 2px solid #0085FF; 
+		box-sizing: border-box;
+	}
+
+	> div {
+		margin: 0px 5px;
+		margin-bottom: 44px;
+		width: 85px;
+		height: 127px;
+
+		display: flex;
+		justify-content: center;
+		padding-top: 16px;
+		padding-bottom: 44px;
+
+		border: 0.5px solid #C0C0C0;
+		border-radius: 2px;
+
+		> .frame-container {
+			width: 100%;
+			height: 100%;
+			display: contents;
+		}
+	
+		img {
+			height: 100%;
+			width: auto;
+		}
+
+		.frame-text { 
+			font-weight: 500;
+			position: absolute;
+			margin-top: 76px;
+			font-size: 11px;
+			width: 85px;
+			text-align: center;
+		}
+	}
 `;

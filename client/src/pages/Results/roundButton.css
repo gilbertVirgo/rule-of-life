@@ -37,3 +37,11 @@
 .round-btn { 
     margin: 8px 3px; border-radius: 100%; border: 2px solid transparent; box-sizing: border-box;
 }
+
+.round-btn-text {
+    text-align: center; text-transform: capitalize;
+}
+
+.mt-30 {
+    margin-top: 30px
+}

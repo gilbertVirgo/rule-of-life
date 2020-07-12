@@ -31,10 +31,14 @@ const format = {
 		});
 	},
 
-	renderPractices: (canvas, sections) => {
+	renderPractices: (canvas, sections, exportType) => {
 		let offsetTop = 78,
 			offsetLeft = 20;
 
+		if (exportType == "Lockscreen" || exportType == "Both") { 
+			offsetTop += 100;
+		}
+		
 		sections.forEach(({ label, practices }) => {
 			canvas.text(label, {
 				x: offsetLeft,
@@ -80,13 +84,13 @@ const format = {
 		});
 	},
 
-	toImage: async ({ practices, theme, constraints }) => {
+	toImage: async ({ exportType, practices, theme, constraints }) => {
 		const [width, height] = constraints;
 
 		const canvas = new Canvas().init(width, height);
 		await format.renderGradient(canvas, theme);
 		await format.renderLogo(canvas);
-		format.renderPractices(canvas, practices);
+		format.renderPractices(canvas, practices, exportType);
 		format.renderFooter(canvas);
 
 		return canvas.canvasElement.toDataURL("image/png", 1);
