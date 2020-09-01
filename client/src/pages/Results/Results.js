@@ -37,7 +37,7 @@ export const Results = ({ results, onImageLoaded, image }) => {
 
 	const [selectedTheme, setSelectedTheme] = React.useState("sunset");
 	const [selectedDevice, setSelectedDevice] = React.useState("iPhone 8");
-	const [selectedExportType, setSelectedExportType] = React.useState("Lockscreen");
+	const [selectedExportType, setSelectedExportType] = React.useState("Sharable");
 
 	const colors = [
 		{ name: 'beige', active: false },
@@ -50,15 +50,17 @@ export const Results = ({ results, onImageLoaded, image }) => {
 		{ name: 'purple', active: false }
 	];
 
-	const generateCanvasImage = (deviceName = "iPhone 8") => {
+	const generateCanvasImage = (deviceName = "iPhone 8", exportType = "Sharable" ) => {
 		return new Promise( async (resolve) => {
 			let uri = await format.toImage({
-				exportType: selectedExportType,
+				exportType: exportType,
 				practices: results,
 				theme: theme.themes[selectedTheme],
+				textColor: theme.textColor[selectedTheme],
 				constraints: constants.devices[deviceName].constraints,
 			});
 			onImageLoaded(uri);
+			image = uri;
 			resolve();
 		});
 	};
@@ -70,9 +72,42 @@ export const Results = ({ results, onImageLoaded, image }) => {
 	}, [selectedTheme]);
 
 	const handleDownload = async () => {
-		await generateCanvasImage(selectedDevice);
+		if (selectedExportType == "Both") {
+			await generateCanvasImage(selectedDevice, "Lockscreen");
+			download(image, "Lockscreen");
+			await generateCanvasImage(selectedDevice, "Sharable");
+			download(image, "Sharable");
+		} else { 
+			await generateCanvasImage(selectedDevice, selectedExportType);
+			download(image);
+		}
 		history.push("/preview");
 	};
+
+	let download = (imageToProcess, fileName = "") => {
+		let base64 = imageToProcess;
+		let uriContent = URL.createObjectURL(b64toBlob(base64));
+		let link = document.createElement('a');
+		link.setAttribute('href', uriContent);
+		if (fileName) { 
+			fileName = "-" + fileName;
+		}
+		link.setAttribute('download', `RuleOfLife${fileName}.png`);
+		let event = new MouseEvent('click');
+		link.dispatchEvent(event);
+	};
+
+	function b64toBlob(dataURI) {
+
+		var byteString = atob(dataURI.split(',')[1]);
+		var ab = new ArrayBuffer(byteString.length);
+		var ia = new Uint8Array(ab);
+
+		for (var i = 0; i < byteString.length; i++) {
+			ia[i] = byteString.charCodeAt(i);
+		}
+		return new Blob([ab], { type: 'image/png' });
+	}
 
 	if (!isValidResults(results) || !isCompletedResults(results) ) {
 		return <Redirect to="/review" />;
@@ -151,8 +186,6 @@ export const Results = ({ results, onImageLoaded, image }) => {
 							</span>
 							<a
 								className="only-desktop"
-								download="RuleOfLife.png"
-								href={image}
 							>
 								<Button downArrow onClick={handleDownload}>
 									Download

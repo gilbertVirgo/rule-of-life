@@ -34,9 +34,16 @@ const format = {
 	renderPractices: (canvas, sections, exportType) => {
 		let offsetTop = 78,
 			offsetLeft = 20;
+		
+		let titleSize = 24,
+			textSize = 12,
+			spaceBetween = 45;
 
-		if (exportType == "Lockscreen" || exportType == "Both") { 
+		if (exportType == "Lockscreen") { 
 			offsetTop += 120;
+			titleSize = 24 / 1.6;
+			textSize = 12 / 1.6;
+			spaceBetween = 45 / 1.6;
 		}
 		
 		sections.forEach(({ label, practices }) => {
@@ -62,7 +69,7 @@ const format = {
 					y: offsetTop,
 					fontFamily: "neue-haas-grotesk-display, sans-serif",
 					fontWeight: 300,
-					fontSize: 24,
+					fontSize: titleSize,
 					lineHeight: 27,
 				});
 
@@ -73,23 +80,25 @@ const format = {
 					maxWidth: 162,
 					fontFamily: "neue-haas-grotesk-display, times",
 					fontWeight: 500,
-					fontSize: 12,
+					fontSize: textSize,
 					lineHeight: 14,
 				});
 
-				offsetTop += 45;
+				offsetTop += spaceBetween;
 			});
 
 			offsetTop += 5;
 		});
 	},
 
-	toImage: async ({ exportType, practices, theme, constraints }) => {
+	toImage: async ({ exportType, practices, theme, textColor, constraints }) => {
 		const [width, height] = constraints;
 
 		const canvas = new Canvas().init(width, height);
 		await format.renderGradient(canvas, theme);
 		await format.renderLogo(canvas);
+		canvas.context.fillStyle = textColor;
+		canvas.context.strokeStyle = textColor;
 		format.renderPractices(canvas, practices, exportType);
 		format.renderFooter(canvas);
 

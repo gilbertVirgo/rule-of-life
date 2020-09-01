@@ -10,6 +10,16 @@ export default {
 		green: ["#E2C58B", "#7EDBDC"],
 		purple: ["#7B5FAC", "#F3A469"]
 	},
+	textColor: {
+		sunset: "#000000",
+		light: "#000000",
+		beige: "#000000",
+		dark: "white",
+		night: "#000000",
+		blue: "#000000",
+		green: "#000000",
+		purple: "#000000"
+	},
 	gradients: {
 		sunset: "linear-gradient(156.26deg, #F6D365 0%, #FDA085 100%);",
 		light: "linear-gradient(90deg, #F5F7FA 0%, #C3CFE2 100%);",

@@ -6,4 +6,7 @@ app.get("/*", function (req, res) {
 	console.log("caught route!");
 	res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-app.listen(4000, () => console.log("Listening on port 4000"));
+
+var PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
