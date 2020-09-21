@@ -11,7 +11,7 @@ const constants = {
 			constraints: [375, 667],
 			image: androidFrame
 		},
-		"iPhone 8": {
+		"iPhone 6/7/8": {
 			constraints: [375, 667],
 			image: iphoneFrame
 		},

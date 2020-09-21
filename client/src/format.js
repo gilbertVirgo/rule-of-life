@@ -5,17 +5,17 @@ const format = {
 		await canvas.gradient(theme);
 	},
 
-	renderLogo: async (canvas) => {
-		const width = 71.72;
+	renderLogo: async (canvas, renderLightLogo=false) => {
+		const width = 32;
 		const height = 32;
 
 		await canvas.image(
-			require("./assets/logo.png"),
+			renderLightLogo ? require("./assets/logo-white.png") : require("./assets/logo.png"),
 			canvas.canvasElement.width / (canvas.scale * 2) - width / 2,
 			20,
 			width,
 			height,
-			{ blendMode: "multiply" }
+			renderLightLogo ? {} : { blendMode: "multiply" }
 		);
 	},
 
@@ -96,7 +96,7 @@ const format = {
 
 		const canvas = new Canvas().init(width, height);
 		await format.renderGradient(canvas, theme);
-		await format.renderLogo(canvas);
+		await format.renderLogo(canvas, textColor == "white");
 		canvas.context.fillStyle = textColor;
 		canvas.context.strokeStyle = textColor;
 		format.renderPractices(canvas, practices, exportType);

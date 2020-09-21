@@ -33,9 +33,8 @@ export const Logo = styled.img.attrs({ src: require("../assets/logo.png") })`
 
 	margin: 30px auto 80px;
 	display: block;
-	height: auto;
-    width: 50%;
-    max-width: 150px;
+	height: 67px;
+    width: auto;
 `;
 
 export const Heading = styled.h1`

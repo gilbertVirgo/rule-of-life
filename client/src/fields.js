@@ -4,7 +4,7 @@ const fields = [
 		practices: [
 			{
 				title:
-					"Firstly, what time of the day would you like to join the rest of KXC in reading scripture using the B.R.E.A.D tool?",
+					"Firstly, what time of the day would you like to join the rest of KXC in reading scripture using the BREAD tool?",
 				label: "Scripture",
 				value: "",
 				placeholder:
@@ -36,7 +36,7 @@ const fields = [
 			},
 			{
 				title:
-					"Fifthly, which spiritual discipline is going to help you stay soft-hearted and emotionally healthy?",
+					"Which spiritual discipline is going to help you stay soft-hearted and emotionally healthy?",
 				label: "Heart",
 				value: "",
 				placeholder:
@@ -57,7 +57,7 @@ const fields = [
 		practices: [
 			{
 				title:
-					"Looking to each week, which Sunday service (10am, 11am, 4.30pm) do you plan to connect with?",
+					"When do you plan to connect with the Sunday service",
 				label: "Come",
 				value: "",
 				placeholder: "Join 430pm on Sunday",
@@ -71,14 +71,14 @@ const fields = [
 			},
 			{
 				title:
-					"Almost there...what is the way you plan to join the rest of the church in serving the city each week?",
+					"How do you plan to join the rest of the church in serving the city each week?",
 				label: "Serve",
 				value: "",
 				placeholder: "Volunteer wth Bankuet 2x a week",
 			},
 			{
 				title:
-					"Finally, you may well already tithe monthly but how could you practice generosity with your finances to bless those in need each week?",
+					"Finally, you may well already tithe monthly, but how could you practice generosity with your finances to bless those in need each week?",
 				label: "Give",
 				value: "",
 				placeholder:

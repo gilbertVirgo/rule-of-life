@@ -15,7 +15,7 @@ export default {
 		light: "#000000",
 		beige: "#000000",
 		dark: "white",
-		night: "#000000",
+		night: "white",
 		blue: "#000000",
 		green: "#000000",
 		purple: "#000000"

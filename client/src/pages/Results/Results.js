@@ -36,7 +36,7 @@ export const Results = ({ results, onImageLoaded, image }) => {
 	const history = useHistory();
 
 	const [selectedTheme, setSelectedTheme] = React.useState("sunset");
-	const [selectedDevice, setSelectedDevice] = React.useState("iPhone 8");
+	const [selectedDevice, setSelectedDevice] = React.useState("iPhone 6/7/8");
 	const [selectedExportType, setSelectedExportType] = React.useState("Sharable");
 
 	const colors = [
@@ -50,7 +50,7 @@ export const Results = ({ results, onImageLoaded, image }) => {
 		{ name: 'purple', active: false }
 	];
 
-	const generateCanvasImage = (deviceName = "iPhone 8", exportType = "Sharable" ) => {
+	const generateCanvasImage = (deviceName = "iPhone 6/7/8", exportType = "Sharable" ) => {
 		return new Promise( async (resolve) => {
 			let uri = await format.toImage({
 				exportType: exportType,
@@ -67,9 +67,9 @@ export const Results = ({ results, onImageLoaded, image }) => {
 
 	React.useEffect(() => {
 		(async function () {
-			await generateCanvasImage();
+			await generateCanvasImage(undefined, selectedExportType);
 		})();
-	}, [selectedTheme]);
+	}, [selectedTheme, selectedExportType]);
 
 	const handleDownload = async () => {
 		if (selectedExportType == "Both") {
