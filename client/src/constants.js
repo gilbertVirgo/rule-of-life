@@ -9,27 +9,33 @@ const constants = {
 	devices: {
 		"Android": {
 			constraints: [375, 667],
-			image: androidFrame
+			image: androidFrame,
+			ratio: 1.4
 		},
 		"iPhone 6/7/8": {
 			constraints: [375, 667],
-			image: iphoneFrame
+			image: iphoneFrame,
+			ratio: 1.4
 		},
 		"iPhone 8+": {
 			constraints: [414, 736],
-			image: iphoneFrame
+			image: iphoneFrame,
+			ratio: 1.15
 		},
 		"iPhone X": {
 			constraints: [375, 812],
-			image: iphoneXFrame
+			image: iphoneXFrame,
+			ratio: 0.95
 		},
 		"iPhone 11 Pro Max": {
 			constraints: [414, 896],
-			image: iphoneXFrame
+			image: iphoneXFrame,
+			ratio: 0.8
 		},
 		"iPhone SE": {
 			constraints: [320, 568],
-			image: iphoneFrame
+			image: iphoneFrame,
+			ratio: 1.95
 		}
 	},
 	exportTypes: {

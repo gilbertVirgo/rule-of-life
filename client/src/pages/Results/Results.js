@@ -57,6 +57,7 @@ export const Results = ({ results, onImageLoaded, image }) => {
 				practices: results,
 				theme: theme.themes[selectedTheme],
 				textColor: theme.textColor[selectedTheme],
+				ratio: constants.devices[deviceName].ratio,
 				constraints: constants.devices[deviceName].constraints,
 			});
 			onImageLoaded(uri);

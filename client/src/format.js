@@ -31,7 +31,7 @@ const format = {
 		});
 	},
 
-	renderPractices: (canvas, sections, exportType) => {
+	renderPractices: (canvas, sections, exportType, ratio) => {
 		let offsetTop = 78,
 			offsetLeft = 20;
 		
@@ -41,9 +41,9 @@ const format = {
 
 		if (exportType == "Lockscreen") { 
 			offsetTop += 120;
-			titleSize = 24 / 1.6;
-			textSize = 12 / 1.6;
-			spaceBetween = 45 / 1.6;
+			titleSize = 24 / ratio;
+			textSize = 12 / ratio;
+			spaceBetween = 45 / ratio;
 		}
 		
 		sections.forEach(({ label, practices }) => {
@@ -91,7 +91,7 @@ const format = {
 		});
 	},
 
-	toImage: async ({ exportType, practices, theme, textColor, constraints }) => {
+	toImage: async ({ exportType, practices, theme, textColor, constraints, ratio }) => {
 		const [width, height] = constraints;
 
 		const canvas = new Canvas().init(width, height);
@@ -99,7 +99,7 @@ const format = {
 		await format.renderLogo(canvas, textColor == "white");
 		canvas.context.fillStyle = textColor;
 		canvas.context.strokeStyle = textColor;
-		format.renderPractices(canvas, practices, exportType);
+		format.renderPractices(canvas, practices, exportType, ratio);
 		format.renderFooter(canvas);
 
 		return canvas.canvasElement.toDataURL("image/png", 1);
