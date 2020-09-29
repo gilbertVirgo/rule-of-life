@@ -100,7 +100,7 @@ const format = {
 		canvas.context.fillStyle = textColor;
 		canvas.context.strokeStyle = textColor;
 		format.renderPractices(canvas, practices, exportType, ratio);
-		format.renderFooter(canvas);
+		// format.renderFooter(canvas);
 
 		return canvas.canvasElement.toDataURL("image/png", 1);
 	},

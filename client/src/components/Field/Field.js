@@ -27,39 +27,41 @@ export const Field = React.forwardRef(
 		};
 
 		return (
-			<>
-				<Number>{index}</Number>
-				<Text>{label}</Text>
-				<Input
-					ref={ref}
-					onFocus={handleFocus}
-					onBlur={handleBlur}
-					value={value}
-					onChange={handleChange}
-					placeholder="Type your answer here..."
-				/>
-				<ValidationWrapper>
-					{focused && (
-						<React.Fragment>
-							<Sub>
-								<Indicator danger={visited && invalid} />
-								<Colored danger={visited && invalid}>
-									{value.length}
-								</Colored>
+			<div style={{ display: 'flex' }}>
+					<Number>{index}</Number>
+					<div>
+						<Text>{label}</Text>
+						<Input
+							ref={ref}
+							onFocus={handleFocus}
+							onBlur={handleBlur}
+							value={value}
+							onChange={handleChange}
+							placeholder="Type your answer here..."
+						/>
+						<ValidationWrapper>
+							{focused && (
+								<React.Fragment>
+									<Sub>
+										<Indicator danger={visited && invalid} />
+										<Colored danger={visited && invalid}>
+											{value.length}
+										</Colored>
 								/60 characters
 							</Sub>
-						</React.Fragment>
-					)}
-					{invalid && visited && (
-						<Sub>
-							<Colored danger>
-								Please make sure this field is filled out
-								correctly
+								</React.Fragment>
+							)}
+							{invalid && visited && (
+								<Sub>
+									<Colored danger>
+										Please make sure this field is filled out
+										correctly
 							</Colored>
-						</Sub>
-					)}
-				</ValidationWrapper>
-			</>
+								</Sub>
+							)}
+						</ValidationWrapper>
+					</div>
+				</div>
 		);
 	}
 );

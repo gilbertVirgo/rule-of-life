@@ -1,9 +1,9 @@
 const androidFrame = require("./assets/frames/android-frame.png");
 const iphoneFrame = require('./assets/frames/iphone-frame.png');
 const iphoneXFrame = require('./assets/frames/iphone-x-frame.png');
-const lockscreenFrame = require('./assets/frames/lockscreen-frame.png');
-const sharableFrame = require('./assets/frames/sharable-frame.png');
-// const lockscreenSharebleFrame = require('./assets/frames/lockscreen-sharable-frame.png');
+const lockscreenFrame = require('./assets/frames/lockscreen-frame.svg');
+const sharableFrame = require('./assets/frames/sharable-frame.svg');
+const bothFrame = require('./assets/frames/sharable-frame.svg');
 
 const constants = {
 	devices: {
@@ -46,7 +46,7 @@ const constants = {
 			image: sharableFrame
 		},
 		"Both": {
-			image: sharableFrame
+			image: bothFrame
 		}
 	}
 };

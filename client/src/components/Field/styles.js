@@ -11,12 +11,14 @@ const Label = styled.span`
 	font-weight: 300;
 `;
 
-export const Number = styled(Label)`
+export const Number = styled.div`
 	/*grid-column-start: 1;
 	text-align: center;*/
 
-	margin-right:20px;
-
+	width:200px;
+	flex: 0 0 12%;
+	font-size: 20px;
+		
 	${breakpoint("lg")`
 	/*grid-column-start: 2;*/
 	`}
